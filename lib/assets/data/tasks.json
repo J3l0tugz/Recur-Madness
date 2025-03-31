@@ -1,0 +1,92 @@
+{
+    "tasks": [
+        {
+            "id": "1",
+            "name": "Buy Milk",
+            "description": "Description 1",
+            "category": "4",
+            "status": "1",
+            "dueDate": "2021-12-31"
+        },
+
+        {
+            "id": "2",
+            "name": "Taste Italy Wine",
+            "description": "Description 2",
+            "category": "5",
+            "status": "1",
+            "dueDate": "2021-12-31"
+        },
+
+        {
+            "id": "3",
+            "name": "Submit Project to Stakeholders",
+            "description": "Description 3",
+            "category": "1",
+            "status": "1",
+            "dueDate": "2021-12-31"
+        },
+
+        {
+            "id": "4",
+            "name": "Golf Cup 2025",
+            "description": "Description 4",
+            "category": "3",
+            "status": "1",
+            "dueDate": "2021-12-31"
+        },
+
+        {
+            "id": "5",
+            "name": "Clean Bathroom Suite",
+            "description": "Description 5",
+            "category": "2",
+            "status": "1",
+            "dueDate": "2021-12-31"
+        }
+    ],
+
+    "categories" : [
+        {
+            "id": "1",
+            "name": "Work"
+        },
+
+        {
+            "id": "2",
+            "name": "Home"
+        },
+
+        {
+            "id": "3",
+            "name": "Outdoors"
+        },
+
+        {
+            "id": "4",
+            "name": "Shopping"
+        },
+
+        {
+            "id": "5",
+            "name": "Travel"
+        }
+    ],
+
+    "status" : [
+        {
+            "id": "1",
+            "name": "Pending"
+        },
+
+        {
+            "id": "2",
+            "name": "In Progress"
+        },
+
+        {
+            "id": "3",
+            "name": "Completed"
+        }
+    ]
+}

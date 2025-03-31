@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LaunchTheme" parent="android:style/Theme.Translucent.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when Flutter draws its first frame -->
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+         <!-- Remove any background color to eliminate the gray strip -->
+         <item name="android:windowBackground">@android:color/transparent</item>
+         <!-- Ensure no title bar is displayed -->
+         <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
