@@ -18,19 +18,21 @@ class ApiService {
   }
 
   Future<Task> createTask(String name, String description, int category,
-      int status, DateTime dueDate, int recurrence) async {
-    final newTask = Task(
-      id: DateTime.now().millisecondsSinceEpoch,
-      name: name,
-      description: description,
-      category: category,
-      status: status,
-      dueDate: dueDate,
-      recurrence: recurrence,
-    );
+    int status, DateTime dueDate, int recurrence) async {
+  final newTask = Task(
+    id: DateTime.now().millisecondsSinceEpoch,
+    name: name,
+    description: description,
+    category: category,
+    status: status,
+    dueDate: dueDate,
+    recurrence: recurrence,
+  );
+  // Add the new task to the internal list
+  _tasks.add(newTask);
+  return Future.value(newTask);
+}
 
-    return Future.value(newTask);
-  }
 
   Future<Task> updateTask(int id, String name, String description, int category,
       int status, DateTime dueDate, int recurrence) async {
