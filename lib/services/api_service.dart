@@ -25,10 +25,10 @@ class ApiService {
       description: description,
       category: category,
       status: status,
-      dueDate: dueDate, 
+      dueDate: dueDate,
       recurrence: recurrence,
     );
-    _tasks.add(newTask);
+
     return Future.value(newTask);
   }
 

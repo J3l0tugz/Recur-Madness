@@ -58,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0x0024243e),
+      backgroundColor: const Color.fromARGB(40, 255, 255, 255),
       body: Stack(
         children: [
           // Expanding Circle Animation (Behind Lottie)
@@ -68,16 +68,7 @@ class _SplashScreenState extends State<SplashScreen>
               return ClipPath(
                 clipper: CircleRevealClipper(_animation.value),
                 child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(97, 48, 43, 99),
-                        Color(0x0024243e)
-                      ],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                    ),
-                  ),
+                 color:  Color.fromARGB(248, 10, 10, 10),
                 ),
               );
             },

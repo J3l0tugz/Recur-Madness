@@ -18,32 +18,35 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     });
 
     on<AddTask>((event, emit) async {
-      try {
-        if (state is TaskLoaded) {
-          final currentState = state as TaskLoaded;
+  try {
+    if (state is TaskLoaded) {
+      final currentState = state as TaskLoaded;
 
-          // Check if task with the same name already exists
-          if (currentState.tasks.any((task) => task.name == event.name)) {
-            return; // Simply return without emitting TaskError
-          }
-
-          final newTask = await apiService.createTask(
-            event.name,
-            event.description,
-            event.category,
-            event.status,
-            event.dueDate,
-            event.recurrence,
-          );
-
-          final updatedTasks = List<Task>.from(currentState.tasks)
-            ..add(newTask);
-          emit(TaskLoaded(updatedTasks));
-        }
-      } catch (e) {
-        emit(TaskError(e.toString()));
+      // Check if task with the same name already exists
+      if (currentState.tasks.any((task) => task.name == event.name)) {
+        return;
       }
-    });
+
+      final newTask = await apiService.createTask(
+        event.name,
+        event.description,
+        event.category,
+        event.status,
+        event.dueDate,
+        event.recurrence,
+      );
+
+      final updatedTasks = List<Task>.from(currentState.tasks);
+      if (!updatedTasks.any((task) => task.id == newTask.id)) {
+        updatedTasks.add(newTask);
+      }
+      emit(TaskLoaded(updatedTasks));
+    }
+  } catch (e) {
+    emit(TaskError(e.toString()));
+  }
+});
+
 
     on<UpdateTask>((event, emit) async {
       try {

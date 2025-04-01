@@ -8,7 +8,8 @@ import 'services/api_service.dart';
 import 'bloc/task_event.dart';
 import 'views/home.dart';
 import 'views/task_list.dart';
-//try 
+
+//try
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -269,7 +270,7 @@ class _MainPageState extends State<MainPage> {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(97, 48, 43, 99), Color(0x0024243e)],
+          colors: [Color.fromARGB(255, 3, 3, 7), Color(0x12121212)],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         ),
@@ -283,7 +284,7 @@ class _MainPageState extends State<MainPage> {
         bottomNavigationBar: SizedBox(
           height: 90,
           child: BottomAppBar(
-            color: Color.fromARGB(61, 48, 43, 99),
+            color: Color.fromARGB(118, 40, 40, 40),
             shape: CircularNotchedRectangle(),
             notchMargin: 10.0,
             child: Padding(
