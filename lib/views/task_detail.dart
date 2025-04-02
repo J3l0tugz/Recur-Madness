@@ -168,11 +168,11 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
   Color _getStatusColor(int status) {
     switch (status) {
       case 1:
-        return Colors.green;
+        return Colors.deepPurpleAccent;
       case 2:
         return Colors.orange;
       case 3:
-        return Colors.blue;
+        return Colors.green;
       default:
         return Colors.grey;
     }

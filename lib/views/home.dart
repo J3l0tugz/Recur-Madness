@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.warning_amber_rounded,
-                      size: 50, color: Colors.redAccent),
+                      size: 50, color: Colors.orangeAccent),
                   SizedBox(height: 10),
                   Text(
                     "Oops! Something went wrong 🤕",
@@ -166,17 +166,17 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         _buildDashboardItem("Active", activeTasks, 1,
-                            Icons.check_circle, Colors.green),
+                            Icons.lightbulb, Colors.deepPurpleAccent),
                         SizedBox(height: 2),
                         _buildDashboardItem(
                             "Pending",
                             pendingTasks,
                             2,
-                            Icons.pending_actions_outlined,
+                            Icons.timer,
                             Colors.orangeAccent),
                         SizedBox(height: 2),
                         _buildDashboardItem("Completed", completedTasks, 3,
-                            Icons.done_all, Colors.blue),
+                            Icons.check_circle, Colors.green),
                         SizedBox(height: 8),
                       ],
                     ),

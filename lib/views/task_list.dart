@@ -44,15 +44,15 @@ class _TaskListState extends State<TaskList> {
   };
 
   final Map<int, Color> statusColors = {
-    1: Colors.green,
+    1: Colors.deepPurpleAccent,
     2: Colors.orange,
-    3: Colors.blue,
+    3: Colors.green,
   };
 
   final Map<int, IconData> statusIcons = {
-    1: Icons.check_circle,
-    2: Icons.pending_actions_outlined,
-    3: Icons.done_all,
+    1: Icons.lightbulb,
+    2: Icons.timer,
+    3: Icons.check_circle,
   };
 
   String getStatusTitle() {
@@ -152,7 +152,7 @@ class _TaskListState extends State<TaskList> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(Icons.warning_amber_rounded,
-                            size: 50, color: Colors.redAccent),
+                            size: 50, color: Colors.orangeAccent),
                         SizedBox(height: 10),
                         Text(
                           "Oops! Something went wrong 🤕",
