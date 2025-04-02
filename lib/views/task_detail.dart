@@ -261,15 +261,13 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
                                 const Color.fromARGB(255, 65, 22, 18),
                           ),
                           onPressed: () {
-                            // Dismiss the AlertDialog
+                            
                             Navigator.pop(context);
 
-                            // Dispatch the deletion event.
                             context
                                 .read<TaskBloc>()
                                 .add(DeleteTask(_currentTask.id));
 
-                            // Show a Snackbar confirming deletion.
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text("Task deleted successfully!"),
@@ -279,7 +277,6 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
                               ),
                             );
 
-                            // Navigate back to the previous screen.
                             Navigator.pop(context);
                           },
                           child: const Text("Delete",

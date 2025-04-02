@@ -233,7 +233,6 @@ class _MainPageState extends State<MainPage> {
                       return;
                     }
 
-                    // Proceed with task creation if no duplicate
                     taskBloc.add(AddTask(
                       name: nameController.text,
                       description: descriptionController.text,

@@ -361,15 +361,6 @@ class _HoverableTaskCardState extends State<HoverableTaskCard> {
   bool _isHovered = false;
   bool _isPressed = false;
 
-  /// Returns a countdown string based on the task's dueDate.
-  /// For active/pending tasks, shows the time remaining until the due date.
-  /// For overdue tasks:
-  ///   - If non-recurring, shows how many days overdue.
-  ///   - If recurring, shows the countdown until the next recurrence.
-  /// In all cases, if the time difference is within 0 days, it shows "Due now".
-  /// For completed tasks:
-  ///   - If non-recurring, it shows "Completed" (or "Due now" if due today).
-  ///   - If recurring, it shows "Completed •" along with the countdown for the next occurrence.
   String _getCountdownText(Task task) {
     final now = DateTime.now();
     final dueDate = task.dueDate;

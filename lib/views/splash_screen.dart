@@ -28,7 +28,6 @@ class _SplashScreenState extends State<SplashScreen>
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
-    // Start the transition after Lottie animation finishes
     Future.delayed(const Duration(seconds: 3), () {
       _controller.forward().then((_) {
         Navigator.of(context).pushReplacement(
@@ -61,7 +60,6 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: const Color.fromARGB(40, 255, 255, 255),
       body: Stack(
         children: [
-          // Expanding Circle Animation (Behind Lottie)
           AnimatedBuilder(
             animation: _animation,
             builder: (context, child) {
@@ -74,7 +72,6 @@ class _SplashScreenState extends State<SplashScreen>
             },
           ),
 
-          // Lottie Animation in the Center
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -85,14 +82,13 @@ class _SplashScreenState extends State<SplashScreen>
                   height: 100,
                   fit: BoxFit.contain,
                 ),
-                const SizedBox(height: 20), // Spacing
+                const SizedBox(height: 20), 
 
-                // Static Text with the desired style
                 Text(
                   'Recur ',
                   style: const TextStyle(
                     fontSize: 30.0,
-                    fontWeight: FontWeight.w300, // Thin for "Recur"
+                    fontWeight: FontWeight.w300, 
                     color: Colors.orangeAccent,
                   ),
                 ),
@@ -103,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen>
                         text: 'M',
                         style: const TextStyle(
                           fontSize: 30.0,
-                          fontWeight: FontWeight.bold, // Bold for "M"
+                          fontWeight: FontWeight.bold, 
                           color: Colors.orange,
                         ),
                       ),
@@ -111,8 +107,8 @@ class _SplashScreenState extends State<SplashScreen>
                         text: 'a',
                         style: const TextStyle(
                           fontSize: 30.0,
-                          fontWeight: FontWeight.w300, // Thin
-                          fontStyle: FontStyle.italic, // Italic for "a"
+                          fontWeight: FontWeight.w300, 
+                          fontStyle: FontStyle.italic, 
                           color: Colors.orangeAccent,
                         ),
                       ),
@@ -120,7 +116,7 @@ class _SplashScreenState extends State<SplashScreen>
                         text: 'dness',
                         style: const TextStyle(
                           fontSize: 30.0,
-                          fontWeight: FontWeight.bold, // Bold for "dness"
+                          fontWeight: FontWeight.bold, 
                           color: Colors.orange,
                         ),
                       ),

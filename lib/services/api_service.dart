@@ -28,7 +28,6 @@ class ApiService {
     dueDate: dueDate,
     recurrence: recurrence,
   );
-  // Add the new task to the internal list
   _tasks.add(newTask);
   return Future.value(newTask);
 }

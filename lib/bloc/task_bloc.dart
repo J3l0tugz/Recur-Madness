@@ -22,7 +22,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     if (state is TaskLoaded) {
       final currentState = state as TaskLoaded;
 
-      // Check if task with the same name already exists
       if (currentState.tasks.any((task) => task.name == event.name)) {
         return;
       }
