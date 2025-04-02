@@ -1,6 +1,6 @@
-import 'package:bloc_crud_example/main.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:bloc_crud_example/main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -68,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen>
               return ClipPath(
                 clipper: CircleRevealClipper(_animation.value),
                 child: Container(
-                 color:  Color.fromARGB(248, 10, 10, 10),
+                  color: const Color.fromARGB(248, 10, 10, 10),
                 ),
               );
             },
@@ -76,11 +76,58 @@ class _SplashScreenState extends State<SplashScreen>
 
           // Lottie Animation in the Center
           Center(
-            child: Lottie.asset(
-              'lib/assets/lottie/fire_splash_lottie.json',
-              width: 100,
-              height: 100,
-              fit: BoxFit.contain,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Lottie.asset(
+                  'lib/assets/lottie/fire_splash_lottie.json',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(height: 20), // Spacing
+
+                // Static Text with the desired style
+                Text(
+                  'Recur ',
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w300, // Thin for "Recur"
+                    color: Colors.orangeAccent,
+                  ),
+                ),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'M',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold, // Bold for "M"
+                          color: Colors.orange,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'a',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w300, // Thin
+                          fontStyle: FontStyle.italic, // Italic for "a"
+                          color: Colors.orangeAccent,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'dness',
+                        style: const TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold, // Bold for "dness"
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -89,6 +136,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 }
 
+// Circle Animation Clipper
 class CircleRevealClipper extends CustomClipper<Path> {
   final double radiusFactor;
 
