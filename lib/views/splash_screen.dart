@@ -87,7 +87,8 @@ class _SplashScreenState extends State<SplashScreen>
                 Text(
                   'Recur ',
                   style: const TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 24.0,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w300, 
                     color: Colors.orangeAccent,
                   ),
@@ -98,7 +99,8 @@ class _SplashScreenState extends State<SplashScreen>
                       TextSpan(
                         text: 'M',
                         style: const TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 24.0,
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold, 
                           color: Colors.orange,
                         ),
@@ -106,7 +108,8 @@ class _SplashScreenState extends State<SplashScreen>
                       TextSpan(
                         text: 'a',
                         style: const TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 24.0,
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.w300, 
                           fontStyle: FontStyle.italic, 
                           color: Colors.orangeAccent,
@@ -115,7 +118,8 @@ class _SplashScreenState extends State<SplashScreen>
                       TextSpan(
                         text: 'dness',
                         style: const TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 24.0,
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold, 
                           color: Colors.orange,
                         ),
