@@ -1,16 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../models/task_model.dart';
-import '../services/api_service.dart';
+import '../db/database_helper.dart';
 import 'task_event.dart';
 import 'task_state.dart';
 
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
-  final ApiService apiService;
+  final DatabaseHelper _dbHelper = DatabaseHelper();
 
-  TaskBloc(this.apiService) : super(TaskLoading()) {
+  TaskBloc(DatabaseHelper databaseHelper) : super(TaskLoading()) {
     on<LoadTasks>((event, emit) async {
       try {
-        final tasks = await apiService.getTasks();
+        final tasks = await _dbHelper.getTasks();
         emit(TaskLoaded(tasks));
       } catch (e) {
         emit(TaskError(e.toString()));
@@ -18,50 +18,42 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     });
 
     on<AddTask>((event, emit) async {
-  try {
-    if (state is TaskLoaded) {
-      final currentState = state as TaskLoaded;
+      try {
+        if (state is TaskLoaded) {
+          final newTask = Task(
+            id: 0, // SQLite will auto-generate the ID
+            name: event.name,
+            description: event.description,
+            category: event.category,
+            status: event.status,
+            dueDate: event.dueDate,
+            recurrence: event.recurrence,
+          );
 
-      if (currentState.tasks.any((task) => task.name == event.name)) {
-        return;
+          await _dbHelper.insertTask(newTask);
+          final tasks = await _dbHelper.getTasks();
+          emit(TaskLoaded(tasks));
+        }
+      } catch (e) {
+        emit(TaskError(e.toString()));
       }
-
-      final newTask = await apiService.createTask(
-        event.name,
-        event.description,
-        event.category,
-        event.status,
-        event.dueDate,
-        event.recurrence,
-      );
-
-      final updatedTasks = List<Task>.from(currentState.tasks);
-      if (!updatedTasks.any((task) => task.id == newTask.id)) {
-        updatedTasks.add(newTask);
-      }
-      emit(TaskLoaded(updatedTasks));
-    }
-  } catch (e) {
-    emit(TaskError(e.toString()));
-  }
-});
-
+    });
 
     on<UpdateTask>((event, emit) async {
       try {
-        final updatedTask = await apiService.updateTask(
-          event.id,
-          event.name,
-          event.description,
-          event.category,
-          event.status,
-          event.dueDate,
-          event.recurrence,
+        final updatedTask = Task(
+          id: event.id,
+          name: event.name,
+          description: event.description,
+          category: event.category,
+          status: event.status,
+          dueDate: event.dueDate,
+          recurrence: event.recurrence,
         );
-        final updatedTasks = (state as TaskLoaded).tasks.map((task) {
-          return task.id == updatedTask.id ? updatedTask : task;
-        }).toList();
-        emit(TaskLoaded(updatedTasks));
+
+        await _dbHelper.updateTask(updatedTask);
+        final tasks = await _dbHelper.getTasks();
+        emit(TaskLoaded(tasks));
       } catch (e) {
         emit(TaskError(e.toString()));
       }
@@ -69,12 +61,9 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 
     on<DeleteTask>((event, emit) async {
       try {
-        await apiService.deleteTask(event.id);
-        final updatedTasks = (state as TaskLoaded)
-            .tasks
-            .where((task) => task.id != event.id)
-            .toList();
-        emit(TaskLoaded(updatedTasks));
+        await _dbHelper.deleteTask(event.id);
+        final tasks = await _dbHelper.getTasks();
+        emit(TaskLoaded(tasks));
       } catch (e) {
         emit(TaskError(e.toString()));
       }

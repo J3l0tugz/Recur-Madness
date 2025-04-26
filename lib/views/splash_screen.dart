@@ -71,7 +71,6 @@ class _SplashScreenState extends State<SplashScreen>
               );
             },
           ),
-
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -82,14 +81,13 @@ class _SplashScreenState extends State<SplashScreen>
                   height: 100,
                   fit: BoxFit.contain,
                 ),
-                const SizedBox(height: 20), 
-
+                const SizedBox(height: 20),
                 Text(
                   'Recur ',
                   style: const TextStyle(
                     fontSize: 24.0,
                     fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w300, 
+                    fontWeight: FontWeight.w300,
                     color: Colors.orangeAccent,
                   ),
                 ),
@@ -101,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen>
                         style: const TextStyle(
                           fontSize: 24.0,
                           fontFamily: 'Poppins',
-                          fontWeight: FontWeight.bold, 
+                          fontWeight: FontWeight.bold,
                           color: Colors.orange,
                         ),
                       ),
@@ -110,8 +108,8 @@ class _SplashScreenState extends State<SplashScreen>
                         style: const TextStyle(
                           fontSize: 24.0,
                           fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w300, 
-                          fontStyle: FontStyle.italic, 
+                          fontWeight: FontWeight.w300,
+                          fontStyle: FontStyle.italic,
                           color: Colors.orangeAccent,
                         ),
                       ),
@@ -120,7 +118,7 @@ class _SplashScreenState extends State<SplashScreen>
                         style: const TextStyle(
                           fontSize: 24.0,
                           fontFamily: 'Poppins',
-                          fontWeight: FontWeight.bold, 
+                          fontWeight: FontWeight.bold,
                           color: Colors.orange,
                         ),
                       ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/task_bloc.dart';
-import 'services/api_service.dart';
+import 'db/database_helper.dart';
 import 'bloc/task_event.dart';
 import 'views/home.dart';
 import 'views/task_list.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => TaskBloc(ApiService())..add(LoadTasks()),
+          create: (context) => TaskBloc(DatabaseHelper())..add(LoadTasks()),
         ),
       ],
       child: MaterialApp(
